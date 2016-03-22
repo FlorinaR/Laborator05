@@ -1,6 +1,8 @@
 package ro.pub.cs.systems.eim.lab05.startedserviceactivity.view;
 
 import android.app.Activity;
+import android.content.ComponentName;
+import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.Menu;
@@ -20,6 +22,11 @@ public class StartedServiceActivity extends Activity {
 		setContentView(R.layout.activity_started_service);
 		
         messageTextView = (TextView)findViewById(R.id.message_text_view);
+        
+        // Ex 6 -> Start the service
+        Intent intent = new Intent();
+        intent.setComponent(new ComponentName("ro.pub.cs.systems.eim.lab05.startedservice", "ro.pub.cs.systems.eim.lab05.startedservice.service.StartedService"));
+        startService(intent);
 
         // TODO: exercise 7a - create an instance of the StartedServiceBroadcastReceiver
 
